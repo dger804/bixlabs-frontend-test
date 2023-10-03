@@ -1,19 +1,25 @@
-import styled from 'styled-components';
-
-import NxWelcome from './nx-welcome';
-
 import './app.css'
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import Home from '../pages/home/Home';
+import Splash from '../pages/splash/Splash';
+import Error404 from '../pages/error/Error404';
 
 export function App() {
-  return (
-    <StyledApp>
-      <NxWelcome title="realstate-front" />
-    </StyledApp>
-  );
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<Splash />} />
+        <Route path="home" element={<Home />} />
+        <Route path="*" element={<Error404 />} />
+      </>
+    )
+  )
+
+  return(
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  )
 }
 
 export default App;
