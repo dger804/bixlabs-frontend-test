@@ -3,6 +3,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Home from '../pages/home/Home';
 import Splash from '../pages/splash/Splash';
 import Error404 from '../pages/error/Error404';
+import Welcome from '../pages/welcome/Welcome';
 
 export function App() {
   const router = createBrowserRouter(
@@ -10,6 +11,7 @@ export function App() {
       <>
         <Route path="/" element={<Splash />} />
         <Route path="home" element={<Home />} />
+        <Route path="Welcome" element={<Welcome />} />
         <Route path="*" element={<Error404 />} />
       </>
     )

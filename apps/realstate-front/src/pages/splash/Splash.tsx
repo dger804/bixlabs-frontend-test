@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react";
 
 const SplashScreenWrapper = styled.div`
   height: 100vh;
@@ -15,6 +17,15 @@ const SplashImage = styled.img`
 `;
 
 const Splash = () => {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const redirectTimer = setTimeout(() => {
+      navigate('/welcome');
+    }, 5000);
+
+    return () => clearTimeout(redirectTimer);
+  }, [navigate]);
   
   return (
     <SplashScreenWrapper>
